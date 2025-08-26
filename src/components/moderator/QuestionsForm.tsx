@@ -39,14 +39,14 @@ export const QuestionForm: React.FC<Props> = ({
   onStartQuestion
 }) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-5 bg-white p-6 rounded-xl shadow-md border border-gray-200">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Pregunta</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Pregunta</label>
         <textarea
           value={questionText}
           onChange={(e) => onQuestionTextChange(e.target.value)}
           placeholder="Escribe tu pregunta aquí..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none h-24"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 resize-none h-24 text-gray-900 text-sm"
         />
       </div>
 
@@ -58,24 +58,24 @@ export const QuestionForm: React.FC<Props> = ({
           { value: option4, setter: onOption4Change, label: 'Opción D' },
         ].map((opt, idx) => (
           <div key={idx}>
-            <label className="block text-sm font-medium text-gray-700 mb-2">{opt.label}</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">{opt.label}</label>
             <input
               type="text"
               value={opt.value}
               onChange={(e) => opt.setter(e.target.value)}
               placeholder={`Opción ${String.fromCharCode(65 + idx)}`}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 text-gray-900 text-sm"
             />
           </div>
         ))}
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Respuesta Correcta</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Respuesta Correcta</label>
         <select
           value={correctAnswerIndex}
           onChange={(e) => onCorrectAnswerChange(parseInt(e.target.value))}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 text-gray-900 text-sm"
         >
           <option value={0}>Opción A</option>
           <option value={1}>Opción B</option>
@@ -85,23 +85,23 @@ export const QuestionForm: React.FC<Props> = ({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Tiempo Límite (segundos)</label>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Tiempo Límite (segundos)</label>
         <input
           type="number"
           value={timeLimit}
           onChange={(e) => onTimeLimitChange(parseInt(e.target.value))}
           min="10"
           max="300"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 text-gray-900 text-sm"
         />
       </div>
 
       <button
         onClick={onStartQuestion}
         disabled={!questionText || !option1 || !option2 || !option3 || !option4 || isGameActive}
-        className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-gray-800 text-white py-3 px-6 rounded-lg font-medium text-base hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <Play className="text-xl" />
+        <Play size={18} />
         Lanzar Pregunta
       </button>
     </div>

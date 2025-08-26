@@ -1,7 +1,7 @@
 import { io, Socket } from 'socket.io-client'
 import type { Question } from '../types/game.types'
 
-const SOCKET_URL = 'http://localhost:3333'
+const SOCKET_URL = 'http://localhost:3001'
 
 class SocketService {
   private socket: Socket | null = null

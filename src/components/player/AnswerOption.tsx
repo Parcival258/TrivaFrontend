@@ -13,23 +13,24 @@ export const AnswerOption: React.FC<Props> = ({ option, index, selected, disable
     <button
       onClick={onSelect}
       disabled={disabled}
-      className={`w-full p-4 text-left rounded-xl border-2 transition-all duration-200 ${
-        selected
+      className={`w-full p-4 text-left rounded-2xl border transition-all duration-200 shadow-sm
+        ${selected
           ? 'bg-blue-100 border-blue-500 text-blue-700'
-          : 'bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
-      } disabled:opacity-50 disabled:cursor-not-allowed`}
+          : 'bg-blue-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300'
+        } 
+        disabled:opacity-50 disabled:cursor-not-allowed`}
     >
       <div className="flex items-center gap-3">
         <div
-          className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-            selected
+          className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold
+            ${selected
               ? 'bg-blue-500 text-white'
-              : 'bg-gray-300 text-gray-700'
-          }`}
+              : 'bg-gray-300 text-gray-900'
+            }`}
         >
           {String.fromCharCode(65 + index)}
         </div>
-        <span className="text-lg">{option}</span>
+        <span className="text-lg text-gray-900">{option}</span>
       </div>
     </button>
   )

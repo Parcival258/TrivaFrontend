@@ -19,31 +19,33 @@ export const RoleSelectionScreen: React.FC<Props> = ({
   onJoinRoom
 }) => {
   return (
-    <div className="w-screen h-screen min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
+    <div className="w-screen h-screen bg-blue-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-xl shadow-lg p-8 max-w-md w-full border border-gray-200">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Users className="text-white text-2xl" />
+          <div className="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Users className="text-white" size={28} />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Trivia Multijugador</h1>
-          <p className="text-gray-600">Elige tu rol para comenzar</p>
+          <h1 className="text-2xl font-semibold text-gray-900 mb-1">
+            Trivia Multijugador
+          </h1>
+          <p className="text-gray-500 text-sm">Elige tu rol para comenzar</p>
         </div>
 
         <div className="space-y-4">
           <button
             onClick={onCreateRoom}
-            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
+            className="w-full bg-gray-800 text-white py-3 px-6 rounded-lg font-medium text-base hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2"
           >
-            <Crown className="text-xl" />
+            <Crown size={20} />
             Ser Moderador
           </button>
-          
+
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
+              <div className="w-full border-t border-gray-200"></div>
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">o</span>
+            <div className="relative flex justify-center text-xs">
+              <span className="px-2 bg-white text-gray-400">o</span>
             </div>
           </div>
 
@@ -53,21 +55,21 @@ export const RoleSelectionScreen: React.FC<Props> = ({
               placeholder="Tu nombre"
               value={playerName}
               onChange={(e) => onPlayerNameChange(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full text-gray-900 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 text-sm"
             />
             <input
               type="text"
               placeholder="Código de sala (ej: AB12)"
               value={roomCode}
               onChange={(e) => onRoomCodeChange(e.target.value.toUpperCase())}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full text-gray-900 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-700 focus:border-gray-700 text-sm"
             />
             <button
               onClick={onJoinRoom}
               disabled={!playerName || !roomCode}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gray-700 text-white py-3 px-6 rounded-lg font-medium text-base hover:bg-gray-800 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <User className="text-xl" />
+              <User size={20} />
               Unirse como Jugador
             </button>
           </div>

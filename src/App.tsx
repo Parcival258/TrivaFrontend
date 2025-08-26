@@ -39,7 +39,8 @@ const App: React.FC = () => {
         text: questionText,
         options: [option1, option2, option3, option4],
         correctAnswer: correctAnswerIndex,
-        timeLimit
+        timeLimit,
+        roomCode: gameState.roomCode
       }
       
       socketService.startQuestion(question)
