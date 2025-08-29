@@ -30,7 +30,7 @@ export const AnswerOption: React.FC<Props> = ({ option, index, selected, disable
         >
           {String.fromCharCode(65 + index)}
         </div>
-        <span className="text-lg text-gray-900">{option}</span>
+        <span className="text-lg text-gray-1  00">{option}</span>
       </div>
     </button>
   )
